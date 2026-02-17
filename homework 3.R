@@ -42,6 +42,47 @@ ggplot(NorthA,
   theme_classic()
 
      
+install.packages(c("lubridate"))
+library(lubridate)
 
+tempAnon <- read.csv("/cloud/project/activity03/climate-change.csv")
 
+#PROMPT 1
+
+tempAnon$date <- ymd(tempAnon$Day)
+
+hemi <- tempAnon %>%
+  filter(Entity == "Northern Hemisphere" | Entity == "Southern Hemisphere")
+
+hemi <- as.factor(hemi$Entity)
+
+northAnon <- tempAnon %>%
+  filter(Entity == "Northern Hemisphere")
+southAnon <- tempAnon %>%
+  filter(Entity == "Southern Hemisphere")
+
+plot(northAnon$date, northAnon$temperature_anomaly,
+     type = "b",
+     pch = 19,
+     xlab = "Year",
+     ylab = "Temperature Anomaly (degrees C)",
+     ylim = c(-2,2))
+
+points(southAnon$date, southAnon$temperature_anomaly,
+       type = "b",
+       pch = 19,
+       col = "darkgoldenrod")
+
+legend("topleft",
+       c("Northern Hemisphere", "Southern Hemisphere"),
+       col = c("black", "darkgoldenrod"),
+       pch = 19, bty = "n")
+
+ggplot(tempAnon,
+       aes(x = date, y= temperature_anomaly, color= hemi))+
+  geom_point()+
+  geom_line()+
+  scale_color_manual(values = c("black","darkgoldenrod"))+
+  theme_classic()
+  
 
