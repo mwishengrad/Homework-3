@@ -41,7 +41,8 @@ ggplot(NorthA,
   scale_color_manual(values = c("red", "royalblue","darkgoldenrod"))+
   theme_classic()
 
-     
+#BEGINING OF PROMPTS
+
 install.packages(c("lubridate"))
 library(lubridate)
 
@@ -50,11 +51,6 @@ tempAnon <- read.csv("/cloud/project/activity03/climate-change.csv")
 #PROMPT 1
 
 tempAnon$date <- ymd(tempAnon$Day)
-
-hemi <- tempAnon %>%
-  filter(Entity == "Northern Hemisphere" | Entity == "Southern Hemisphere")
-
-hemi <- as.factor(hemi$Entity)
 
 northAnon <- tempAnon %>%
   filter(Entity == "Northern Hemisphere")
@@ -78,11 +74,31 @@ legend("topleft",
        col = c("black", "darkgoldenrod"),
        pch = 19, bty = "n")
 
-ggplot(tempAnon,
-       aes(x = date, y= temperature_anomaly, color= hemi))+
+tempAnon$Entity <- as.factor(tempAnon$Entity)
+
+hemi <- tempAnon %>%
+  filter(Entity == "Northern Hemisphere"| Entity == "Southern Hemisphere")
+
+ggplot(hemi,
+       aes(x = date, y= temperature_anomaly, color=Entity))+
   geom_point()+
   geom_line()+
   scale_color_manual(values = c("black","darkgoldenrod"))+
   theme_classic()
-  
 
+#Prompt 2
+
+totalCO2 <- dat.CO2 %>%
+  filter(Entity =="United States" | Entity == "Canada" | Entity == "Mexico") %>%
+  group_by(Entity) %>%
+  summarise(total = sum(CO2))
+
+ggplot(totalCO2,
+       aes(x = Entity, y= total, colour = Entity, fill = Entity))+
+  geom_col()+
+  labs(x="Country", y="Total all time emissions")+
+  theme_classic()
+
+#BEGINING OF HOMEWORK
+
+#QUESTION 1
