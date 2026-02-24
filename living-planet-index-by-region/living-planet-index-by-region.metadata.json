@@ -1,0 +1,37 @@
+{
+  "chart": {
+    "title": "Living Planet Index by region",
+    "subtitle": "The Living Planet Index (LPI) measures the average relative decline in monitored wildlife [populations](#dod:population). The index value measures the change in abundance in 34,836 populations across  5,495 native species relative to the year 1970 (i.e. 1970 = 100%).",
+    "note": "Some regions of the world are will have experienced significant biodiversity loss prior to 1970, this earlier loss will not captured in this metric.",
+    "citation": "World Wildlife Fund and Zoological Society of London (2024)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/living-planet-index-by-region?v=1&csvType=full&useColumnShortNames=false",
+    "selection": [
+      "Africa",
+      "Europe and Central Asia",
+      "Latin America and the Caribbean",
+      "North America",
+      "World",
+      "Asia and Pacific"
+    ]
+  },
+  "columns": {
+    "Living Planet Index": {
+      "titleShort": "Living Planet Index",
+      "titleLong": "Living Planet Index",
+      "descriptionShort": "The Living Planet Index (LPI) is a measure of the state of global biological diversity based on population trends of vertebrate species from around the world. The index value is measured relative to species' populations in 1970 (i.e. 1970 = 1).",
+      "unit": "(1970 = 1)",
+      "timespan": "1970-2020",
+      "type": "Numeric",
+      "conversionFactor": 100,
+      "owidVariableId": 990513,
+      "shortName": "lpi_final",
+      "lastUpdated": "2024-09-30",
+      "nextUpdate": "2026-09-30",
+      "citationShort": "World Wildlife Fund and Zoological Society of London (2024) – processed by Our World in Data",
+      "citationLong": "World Wildlife Fund and Zoological Society of London (2024) – processed by Our World in Data. “Living Planet Index” [dataset]. World Wildlife Fund and Zoological Society of London, “Living Planet Index” [original data].",
+      "fullMetadata": "https://api.ourworldindata.org/v1/indicators/990513.metadata.json"
+    }
+  },
+  "dateDownloaded": "2026-02-24",
+  "activeFilters": {}
+}
